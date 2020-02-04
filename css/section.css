@@ -1,0 +1,98 @@
+.playing-card, .card-inner,
+.card-front, .card-back {
+  width: 8vw;
+    height: 17vh;
+}
+
+.playing-card {
+	position: relative;
+	display: inline-block;
+  margin: 1.3vw;
+  padding: 5px;
+  border-radius: 5px;
+  background: #fff;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
+}
+
+.card-inner {
+	box-sizing: border-box;
+	position: absolute;
+  display: flex;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+	justify-content: flex-start;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  }
+.card-front, .card-back {
+  background-repeat: no-repeat;
+  position: absolute;
+	-webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  justify-content: flex-end;
+}
+.card-front {
+	-webkit-transform: rotateY(-180deg);
+	transform: rotateY(-180deg);
+}
+
+.card-back {
+  background-size: 97%;
+  background-position: center center;
+  background-image: url("../images/backCard.png");
+}
+
+.card-shown .card-inner {
+	-webkit-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+    transition: all 1s;
+}
+
+
+.bear{
+  background-image: url('../images/bear.jpg');
+  background-position: center center;
+  background-size: cover;
+}
+.elephant{
+  background-image: url('../images/elephant.jpg');
+  background-position: center center;
+  background-size: cover;
+}
+.koala{
+  background-image: url('../images/koala.jpg');
+  background-position: center center;
+  background-size: cover;
+}
+.lions{
+  background-image: url('../images/lions.png');
+  background-position: center center;
+  background-size: cover;
+}
+.monkey{
+  background-image: url('../images/monkey.png');
+  background-position: center center;
+  background-size: cover;
+}
+.penguin{
+  background-image: url('../images/penguin.jpg');
+  background-position: center center;
+  background-size: cover;
+}
+.rhino{
+  background-image: url('../images/rhino.jpg');
+  background-position: center center;
+  background-size: cover;
+}
+.unicorn{
+  background-image: url('../images/unicorn.jpg');
+  background-position: center center;
+  background-size: cover;
+}
+.zebra{
+  background-image: url('../images/zebra.jpg');
+  background-position: center center;
+  background-size: cover;
+}

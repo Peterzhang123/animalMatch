@@ -1,0 +1,26 @@
+body{
+  background-image: url('../images/wild.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+header{
+  /* border: 1px solid burlywood; */
+  height: 30vh;
+}
+main{
+  width:100%
+}
+aside{
+  border: 1px solid black;
+  height: auto;
+}
+section{
+  /* border: 1px solid green; */
+  height: auto;;
+}
+footer{
+  /* border: 1px solid red; */
+  height: 10vh;
+}
