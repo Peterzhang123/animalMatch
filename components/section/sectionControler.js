@@ -8,11 +8,12 @@ class SectionControler {
     this.displayAllAnimal = this.displayAllAnimal.bind(this);
     this.handleClick = this.handleClick.bind(this);
 
-    this.firstClick="";
+    this.firstClick = "";
     this.result = null;
     this.clickTimes = null;
     this.correctTime = null;
     this.sections = [];
+    this.boolean = false;
   }
   addData(data) {
     this.sections.push(new SectionModal(data, {
@@ -22,6 +23,7 @@ class SectionControler {
   loadSection(sd) {
     sd.forEach(this.addData)
   }
+  
   render(sections) {
     var col2 = sections.map(v => { return v.render() });
     this.section.empty().append(col2);
@@ -30,22 +32,45 @@ class SectionControler {
     this.render(this.sections)
   }
   handleClick(pc) {
-    this.clickTimes++;
-    console.log("data: ",pc);
-    pc.dom.playingCard.addClass('card-shown');
-    var className = pc.dom.cardFront[0].className;
-    console.log("click Time: ",this.clickTimes);
+    if(this.boolean){
+      alert("you cant click now")
+      return;
+    } 
 
-    if(!this.firstClick){
-      this.firstClick = className;
-    }else{
-      if(this.firstClick == className){
-        console.log("they are the same");
-      }else{
-        console.log("they are different: this is firstClick value: ",this.firstClick +" & this is className Value"+className)
-      }
-      this.firstClick = '';
-    }
+    console.log("boolean value : " + this.boolean + " clicked times: "+ this.clickTimes)
+
+    this.clickTimes++;
+    // console.log("data: ", pc);
    
+    // console.log("click Time: ", this.clickTimes);
+    var secondElement = pc.dom.playingCard;
+    secondElement.addClass('card-shown');
+    var id = pc.data.id;
+
+    if (!this.firstClick) {
+      this.firstClick = id;
+      this.firstClickElement = secondElement;
+    } else {
+      if (this.firstClick == id) {
+        console.log("they are the same");
+        secondElement.off("click");
+        this.firstClickElement.off("click");
+        secondElement = {};
+        this.firstClickElement = {};
+      } else {
+          setTimeout(()=>{
+            secondElement.removeClass("card-shown");
+            this.firstClickElement.removeClass("card-shown");
+            secondElement = {};
+            this.firstClickElement = {};
+            this.boolean = false;
+          }, 1500);
+          this.boolean = true;
+          console.log("they are different: this is firstClick value: ", this.firstClick + " & this is id Value: " + id)
+        }
+      this.firstClick = "";
+      id = "";
+      
+    }
   }
 }

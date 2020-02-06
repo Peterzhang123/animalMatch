@@ -7,5 +7,6 @@ function initialized() {
     aside:'aside'
   })
   maincontroller.loadData(sectionData);
+  // maincontroller.shuffle(sectionData);
 
 }

@@ -7,7 +7,7 @@ body{
 
 header{
   /* border: 1px solid burlywood; */
-  height: 30vh;
+  height: 25vh;
 }
 main{
   width:100%
@@ -22,5 +22,5 @@ section{
 }
 footer{
   /* border: 1px solid red; */
-  height: 10vh;
+  height: 8vh;
 }
